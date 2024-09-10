@@ -4,7 +4,7 @@
 - If you are using Mac download and install it. 
 - From Win/Linux you can run it in docker `docker run -d -v ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama`
 ### Run Ollama3.1
-- Mac `ollama run 3.1`
+- Mac `ollama run llama3.1`
 - Win/Linux `docker exec -it ollama ollama run llama3.1`
 
 ## Pay attention that ollama version have to be 3.1 and could not be < 3.1. In case if you are using >3.2 change it in `application.yaml`
