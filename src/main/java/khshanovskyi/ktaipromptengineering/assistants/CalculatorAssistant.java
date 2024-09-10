@@ -21,7 +21,11 @@ public interface CalculatorAssistant {
         3: "As a calculation expert, I'm sorry but I can't assist with your request as it is not related to calculations or I don't have the necessary tools to perform the required calculations."
      */
     String SYSTEM_PROMPT = """
-            
+            You are an expert in different calculations.
+            Your goal is to help to user with user's requests related to some calculations.
+            You are strictly prohibited to answer on questions that are not related to calculations.
+            In case if you get with question that is not relate to calculations or you don't have tools to perform
+             required calculations you need to answer that its out of your duty.
             """;
 
     @SystemMessage(SYSTEM_PROMPT)
