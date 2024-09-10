@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: kt-ai-prompt-engineering
+
+ollama:
+  model:
+    name: llama3.1
+  host:
+    url: http://localhost:11434/

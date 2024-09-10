@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chat with AI</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+<form id="chat-form">
+    <label for="question">Ask a question:</label><br>
+    <input type="text" id="question" name="question"><br>
+    <input type="submit" value="Submit">
+</form>
+<h2>Chat History</h2>
+<ul id="chat-history"></ul>
+
+<script>
+    var source;
+    var timer;
+
+    $("#chat-form").on("submit", function(event) {
+        event.preventDefault();
+
+        var question = $("#question").val();
+        $("#question").val("").prop("disabled", true);
+
+        if (source) {
+            source.close();
+        }
+
+        source = new EventSource('v1/laws/chat-stream?question=' + question);
+        source.onmessage = function(event) {
+            clearTimeout(timer);  // clear the previous timer
+            $("#chat-history").append(event.data + " ");
+            timer = setTimeout(function() {  // set a new timer
+                $("#chat-history").append("<br>");  // add a new line
+            }, 3000);  // after 3 seconds
+            $("#question").prop("disabled", false);
+        };
+        source.onerror = function(event) {
+            $("#chat-history").append(event);
+            $("#question").prop("disabled", false);
+        };
+    });
+</script>
+</body>
+</html>
