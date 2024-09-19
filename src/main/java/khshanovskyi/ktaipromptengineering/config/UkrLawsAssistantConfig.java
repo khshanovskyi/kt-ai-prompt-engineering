@@ -28,7 +28,7 @@ public class UkrLawsAssistantConfig {
      * Creates bean of {@link UkrLawsAssistant}. Under the hood will be created a proxy that will have all AI components.
      * If you acknowledged with 'chains' from langchain - its alternative of them
      *
-     * @see LangchaingConfig
+     * @see AiModelConfig
      */
     @Bean
     UkrLawsAssistant ukrLawsAssistant(StreamingChatLanguageModel streamingChatLanguageModel,

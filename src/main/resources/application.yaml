@@ -2,6 +2,12 @@ spring:
   application:
     name: kt-ai-prompt-engineering
 
+open-ai:
+  enabled: false #disabled by default
+  api-key: ${OPENAI_API_KEY:WRONG_API_KEY}
+  model:
+    name: gpt-3.5-turbo
+
 ollama:
   model:
     name: llama3.1
