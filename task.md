@@ -1,13 +1,19 @@
 ## Task:
 
-### Before start install Ollama [Link](https://ollama.com/blog/ollama-is-now-available-as-an-official-docker-image)
-- If you are using Mac download and install it. 
-- From Win/Linux you can run it in docker `docker run -d -v ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama`
-### Run Ollama3.1
-- Mac `ollama run llama3.1`
-- Win/Linux `docker exec -it ollama ollama run llama3.1`
-
-## Pay attention that ollama version have to be 3.1 and could not be < 3.1. In case if you are using >3.2 change it in `application.yaml`
+## Prerequisites:
+### Choose LLM that you will use:
+- **Ollama:** Run locally `llama3.1`, **PAY ATTENTION THAT IT CAN WORK SLOW DEPENDING ON MACHINE**
+   - On Windows/Linux or Mac with Intel:
+      - pull image and run ollama `docker run -d -v ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama`
+      - run llama3.1 `docker exec -it ollama ollama run llama3.1`
+   - On Mac with M-series processors:
+      - install ollama from [link](https://ollama.com/blog/ollama-is-now-available-as-an-official-docker-image)
+      - run `ollama run llama3.1`
+      -
+- **OpenAI: PAY ATTENTION THAT YOU NEED TO PAY CREDIT (1$-10$) TO USE ITS API** [OpenAI Platform](https://platform.openai.com/)
+   - add your API_KEY to `application.yaml` -> `open-ai.api-key` instead of `WRONG_API_KEY` (if you have it env variables check that it has proper name OPENAI_API_KEY)
+   - set `open-ai.enabled` as `true' in the `application.yaml`
+   - by default, we are using `gpt-3.5-turbo` model
 
 ##
 1. You need to write prompt for `CalculatorAssistant` and test it:
